@@ -567,8 +567,8 @@ h2.revealed {
 }
 
 .logo img {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   box-shadow: 0 4px 12px var(--shadow-light);
   transition: transform 0.3s ease;
