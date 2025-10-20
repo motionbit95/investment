@@ -546,10 +546,8 @@ h2.revealed {
   z-index: 1000;
   transform: translateY(0);
   opacity: 1;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.4s ease,
-              padding 0.3s ease,
-              box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease,
+    padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .partnership-header.header-hidden {
@@ -613,7 +611,7 @@ h2.revealed {
 
 /* Hero Section */
 .hero {
-  padding: 180px 0 60px 0;
+  padding: 240px 0 60px 0;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -2066,6 +2064,99 @@ footer {
   justify-content: center;
   align-items: center;
   min-height: 600px;
+  overflow: hidden;
+}
+
+/* Floating Icons around mockup */
+.floating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.float-icon {
+  position: absolute;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  animation: floatIcon 4s ease-in-out infinite;
+}
+
+/* Mobile: icons peek out from behind mockup */
+.float-chat {
+  top: 8%;
+  right: -5%;
+  width: 90px;
+  height: 90px;
+  opacity: 0.6;
+  animation-delay: 0s;
+}
+
+.float-like {
+  bottom: 15%;
+  right: -25%;
+  width: 180px;
+  height: 180px;
+  opacity: 0.5;
+  animation-delay: 1.5s;
+}
+
+.float-gift {
+  top: 12%;
+  left: -25%;
+  width: 180px;
+  height: 180px;
+  opacity: 0.5;
+  animation-delay: 3s;
+}
+
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Desktop: larger icons, peek out more */
+@media (min-width: 1024px) {
+  .phone-mockup-container {
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .phone-frame {
+    width: 360px;
+    height: 720px;
+  }
+
+  .float-chat {
+    top: 8%;
+    right: -30%;
+    width: 160px;
+    height: 160px;
+    opacity: 0.6;
+  }
+
+  .float-like {
+    bottom: 15%;
+    right: -40%;
+    width: 340px;
+    height: 340px;
+    opacity: 0.5;
+  }
+
+  .float-gift {
+    top: 12%;
+    left: -40%;
+    width: 340px;
+    height: 340px;
+    opacity: 0.5;
+  }
 }
 
 .floating-elements {
@@ -2116,7 +2207,7 @@ footer {
 /* Phone Frame */
 .phone-mockup {
   position: relative;
-  z-index: 2;
+  z-index: 5;
 }
 
 .phone-frame {
@@ -2166,6 +2257,86 @@ footer {
   position: relative;
 }
 
+/* Mockup Content */
+.mockup-content {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 120px 30px 50px 30px;
+}
+
+.mockup-logos-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.mockup-times {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text-tertiary);
+  opacity: 0.7;
+  margin: 0;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: 10;
+  background: var(--bg-primary);
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.mockup-logo-horizontal {
+  width: auto;
+  height: 160px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  background: #ffffff;
+  padding: 28px 40px;
+  border-radius: 60px;
+  box-shadow: none;
+}
+
+.mockup-logo-horizontal:hover {
+  transform: scale(1.05);
+}
+
+.kakao-openchat-btn {
+  display: inline-block;
+  background: #fee500;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(254, 229, 0, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.kakao-openchat-btn:hover {
+  background: #ffd000;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(254, 229, 0, 0.5);
+}
+
+.kakao-openchat-btn:active {
+  transform: translateY(0);
+}
+
 /* Mockup Logos - Clean & Simple */
 .mockup-logos {
   width: 100%;
@@ -2176,7 +2347,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  padding: 140px 30px 60px 30px;
+  padding: 110px 30px 60px 30px;
 }
 
 .mockup-logo {
@@ -2675,6 +2846,10 @@ body.dark-mode .phone-screen {
   background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
 }
 
+body.dark-mode .mockup-content {
+  background: #1e293b !important;
+}
+
 body.dark-mode .mockup-logos {
   background: #1e293b !important;
 }
@@ -2899,6 +3074,52 @@ body.dark-mode .logo span {
     height: 560px;
   }
 
+  /* Floating icons responsive */
+  .float-chat {
+    top: 8%;
+    right: 0%;
+    width: 90px;
+    height: 90px;
+  }
+
+  .float-like {
+    bottom: 15%;
+    right: -25%;
+    width: 180px;
+    height: 180px;
+  }
+
+  .float-gift {
+    top: 12%;
+    left: -25%;
+    width: 180px;
+    height: 180px;
+  }
+
+  /* Mockup content responsive */
+  .mockup-content {
+    padding: 130px 15px 30px 15px;
+  }
+
+  .mockup-logos-row {
+    gap: 0;
+  }
+
+  .mockup-times {
+    font-size: 20px;
+    padding: 3px 8px;
+  }
+
+  .mockup-logo-horizontal {
+    height: 110px;
+    padding: 20px 28px;
+  }
+
+  .kakao-openchat-btn {
+    font-size: 15px;
+    padding: 12px 28px;
+  }
+
   .float-coin,
   .float-chart,
   .float-dollar {
@@ -3012,8 +3233,10 @@ body.dark-mode .logo span {
   }
 
   .emoji-icon {
-    width: 64px !important;
-    height: 64px !important;
+    width: auto !important;
+    max-width: 180px !important;
+    height: auto !important;
+    max-height: 120px !important;
   }
 
   .feature-icon img {
