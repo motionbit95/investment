@@ -2312,18 +2312,21 @@ footer {
 }
 
 .kakao-openchat-btn {
-  display: inline-block;
+  display: block;
+  width: 100%;
+  max-width: 250px;
   background: #fee500;
   color: #000000;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  padding: 16px 40px;
+  padding: 14px 30px;
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(254, 229, 0, 0.4);
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  text-align: center;
 }
 
 .kakao-openchat-btn:hover {
@@ -3121,8 +3124,9 @@ body.dark-mode .logo span {
   }
 
   .kakao-openchat-btn {
-    font-size: 15px;
-    padding: 12px 28px;
+    font-size: 14px;
+    padding: 12px 24px;
+    max-width: 200px;
   }
 
   .float-coin,
