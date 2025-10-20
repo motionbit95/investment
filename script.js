@@ -85,16 +85,6 @@ document.querySelectorAll('section h1, section h2, .emoji-icon').forEach(el => {
     el.classList.add('reveal');
 });
 
-// CTA Button interactions
-const ctaButtons = document.querySelectorAll('.cta-button, .signup-btn');
-ctaButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Add your signup/registration logic here
-        alert('회원가입 페이지로 이동합니다!');
-    });
-});
-
 // Feature buttons
 const featureButtons = document.querySelectorAll('.feature-btn');
 featureButtons.forEach(button => {
@@ -113,98 +103,10 @@ aiButtons.forEach(button => {
     });
 });
 
-// Modal functionality
-const modal = document.getElementById('signupModal');
-const openModalBtn = document.getElementById('openSignupModal');
-const closeModalBtn = document.getElementById('closeModal');
-const modalOverlay = document.getElementById('modalOverlay');
-const submitBtn = document.getElementById('submitSignup');
-const userName = document.getElementById('userName');
-const userPhone = document.getElementById('userPhone');
-
-// Open modal
-if (openModalBtn) {
-    openModalBtn.addEventListener('click', function() {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-}
-
-// Close modal
-function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    userName.value = '';
-    userPhone.value = '';
-}
-
-if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
-}
-
-if (modalOverlay) {
-    modalOverlay.addEventListener('click', closeModal);
-}
-
-// ESC key to close modal
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-    }
-});
-
-// Form submission
-if (submitBtn) {
-    submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const name = userName.value.trim();
-        const phone = userPhone.value.trim();
-
-        if (!name) {
-            alert('이름을 입력해주세요.');
-            userName.focus();
-            return;
-        }
-
-        if (!phone) {
-            alert('전화번호를 입력해주세요.');
-            userPhone.focus();
-            return;
-        }
-
-        // Simple phone validation (Korean format)
-        const phoneRegex = /^01[0-9]-?[0-9]{3,4}-?[0-9]{4}$/;
-        if (!phoneRegex.test(phone)) {
-            alert('올바른 전화번호 형식을 입력해주세요. (예: 010-1234-5678)');
-            userPhone.focus();
-            return;
-        }
-
-        // Success
-        alert(`${name}님, 신청이 완료되었습니다!\n담당자가 곧 연락드리겠습니다.`);
-        closeModal();
-    });
-}
-
-// Phone number auto-formatting
-if (userPhone) {
-    userPhone.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/[^0-9]/g, '');
-
-        if (value.length > 11) {
-            value = value.slice(0, 11);
-        }
-
-        if (value.length >= 7) {
-            value = value.replace(/(\d{3})(\d{4})(\d{0,4})/, '$1-$2-$3');
-        } else if (value.length >= 3) {
-            value = value.replace(/(\d{3})(\d{0,4})/, '$1-$2');
-        }
-
-        e.target.value = value;
-    });
-}
+// ===================================================================
+// NOTE: CTA 버튼, 모달 기능, 전화번호 포맷팅은 signup-form.js에서 처리됩니다.
+// Firebase 연동을 위해 해당 파일로 이동되었습니다.
+// ===================================================================
 
 // Add hover effects to table rows
 const tableRows = document.querySelectorAll('.price-table tbody tr');
