@@ -2280,7 +2280,13 @@ footer {
 }
 
 .mockup-times {
-  display: none;
+  display: block;
+  font-size: 18px;
+  font-weight: 300;
+  color: #888888;
+  opacity: 0.7;
+  margin: -20px 0;
+  text-align: center;
 }
 
 .mockup-logo-horizontal {
@@ -2295,16 +2301,14 @@ footer {
   background: #ffffff;
   padding: 0;
   border-radius: 50% !important;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08),
-              0 3px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08), 0 3px 12px rgba(0, 0, 0, 0.06);
   aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
 .mockup-logo-horizontal:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1),
-              0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .kakao-openchat-btn {
@@ -3098,6 +3102,12 @@ body.dark-mode .logo span {
 
   .mockup-logos-row {
     gap: 20px;
+  }
+
+  .mockup-times {
+    font-size: 16px;
+    margin: -12px 0;
+    color: #999999;
   }
 
   .mockup-logo-horizontal {
