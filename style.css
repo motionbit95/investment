@@ -539,17 +539,29 @@ h2.revealed {
   border-bottom: 1px solid var(--border-light);
   box-shadow: 0 1px 3px var(--shadow-light);
   backdrop-filter: blur(10px);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s ease,
+              padding 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.partnership-header.header-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  box-shadow: none;
 }
 
 .partnership-header.scrolled {
   padding: 20px 0;
-  background: var(--bg-primary);
   backdrop-filter: blur(20px);
-  box-shadow: 0 1px 3px var(--shadow-light);
+  box-shadow: 0 2px 8px var(--shadow-light);
 }
 
 .partnership-logos {
@@ -601,7 +613,7 @@ h2.revealed {
 
 /* Hero Section */
 .hero {
-  padding: 60px 0;
+  padding: 180px 0 60px 0;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -2163,8 +2175,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  padding: 60px 30px;
+  gap: 40px;
+  padding: 140px 30px 60px 30px;
 }
 
 .mockup-logo {
@@ -2180,7 +2192,7 @@ footer {
 }
 
 .mockup-logo.gaon {
-  width: 65%;
+  /* width: 65%; */
   height: auto;
   max-height: 120px;
 }
@@ -2189,15 +2201,15 @@ footer {
 .mockup-tagline {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  top: 35px;
   transform: translateX(-50%);
-  width: 90%;
+  width: 86%;
   text-align: center;
-  padding: 12px 16px;
-  border-radius: 9999px; /* pill */
-  font-size: 16px;
+  padding: 16px 22px;
+  border-radius: 20px;
+  font-size: 18px;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1.5;
   color: #ffffff;
   background: linear-gradient(
     135deg,
@@ -2207,7 +2219,7 @@ footer {
   box-shadow: 0 10px 24px var(--shadow-color);
   border: 1px solid var(--border-light);
   z-index: 2;
-  pointer-events: none; /* not clickable */
+  pointer-events: none;
   user-select: none;
 }
 
@@ -2929,7 +2941,10 @@ body.dark-mode .logo span {
   }
 
   .times {
-    display: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    font-weight: 300;
   }
 
   /* Typography responsive fixes */
@@ -3008,5 +3023,13 @@ body.dark-mode .logo span {
 
   .feature-card {
     padding: 25px 20px;
+  }
+
+  .times {
+    font-size: 20px;
+  }
+
+  .partnership-logos {
+    gap: 8px;
   }
 }

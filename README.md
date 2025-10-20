@@ -10,7 +10,7 @@ investment-landing-page/
 ├── style.css            # 통합 스타일시트 (3000+ lines)
 ├── script.js            # JavaScript 기능
 ├── images/              # 이미지 파일
-│   ├── gaon.jpg
+│   ├── gaon.png
 │   ├── wife.png
 │   └── tomato.png
 └── icons/               # 아이콘 파일
@@ -19,12 +19,15 @@ investment-landing-page/
 ## 파일 설명
 
 ### index.html
+
 - 시맨틱 HTML5 구조
 - 섹션: 헤더, 히어로, 성과, 기능, 가격표, CTA
 - 다크모드 토글 버튼 포함
 
 ### style.css
+
 통합된 스타일시트 구조:
+
 1. **폰트** (1-71): Pretendard 웹폰트
 2. **CSS 변수** (73-110): 색상, 배경, 텍스트, 테두리
 3. **기본 스타일** (112-650): 리셋, 타이포그래피, 레이아웃
@@ -36,7 +39,9 @@ investment-landing-page/
 9. **반응형** (1865-3037): 데스크톱/태블릿/모바일
 
 ### script.js
+
 주요 기능:
+
 - 스크롤 애니메이션 (Intersection Observer)
 - 다크모드 토글
 - 모달 처리
@@ -47,23 +52,27 @@ investment-landing-page/
 ## 주요 기능
 
 ### 다크모드
+
 - 오른쪽 상단 토글 버튼 (☀️/🌙)
 - localStorage에 설정 저장
 - 전체 페이지 테마 전환
 
 ### 반응형 디자인
+
 - 데스크톱 (1024px+)
 - 태블릿 (768px - 1023px)
 - 모바일 (< 768px)
 - 작은 모바일 (< 480px)
 
 ### 애니메이션
+
 - 스크롤 기반 reveal 애니메이션
 - 호버 효과
 - 플로팅 요소
 - 카운터 애니메이션
 
 ## 브라우저 지원
+
 - Chrome (최신)
 - Firefox (최신)
 - Safari (최신)
@@ -78,6 +87,7 @@ python3 -m http.server 8000
 브라우저에서 http://localhost:8000 접속
 
 ## 최적화 완료 사항
+
 - ✅ CSS 파일 통합 (style.css + style-additions.css → style.css)
 - ✅ JavaScript 최적화 (IIFE 패턴, console.log 제거)
 - ✅ 다크모드 구현
@@ -85,6 +95,7 @@ python3 -m http.server 8000
 - ✅ 모바일 최적화
 
 ## 향후 개선 사항
+
 - CSS 파일을 더 작은 모듈로 분리 고려
 - 이미지 최적화 (WebP 형식)
 - 성능 최적화 (Critical CSS)

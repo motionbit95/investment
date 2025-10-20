@@ -257,16 +257,39 @@ function updateScrollProgress() {
     }
 }
 
-// Sticky Header Effect
-function updateHeaderOnScroll() {
-    const header = document.querySelector('.partnership-header');
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+// Header Hide/Show on Scroll
+let lastScrollTop = 0;
+let scrollDelta = 0;
+const header = document.querySelector('.partnership-header');
+const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
 
+function updateHeaderOnScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDiff = scrollTop - lastScrollTop;
+
+    // Add scrolled class when scrolled down
     if (scrollTop > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
+
+    // Accumulate scroll delta
+    scrollDelta += scrollDiff;
+
+    // Only hide/show after scrolling a certain distance
+    if (Math.abs(scrollDelta) > scrollThreshold) {
+        if (scrollDelta > 0 && scrollTop > 200) {
+            // Scrolling down significantly
+            header.classList.add('header-hidden');
+        } else if (scrollDelta < 0) {
+            // Scrolling up
+            header.classList.remove('header-hidden');
+        }
+        scrollDelta = 0; // Reset delta after action
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }
 
 // Smooth parallax effect for emoji icons and elements
