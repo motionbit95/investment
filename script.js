@@ -468,4 +468,39 @@ window.addEventListener('load', () => {
     });
 });
 
+// Dark Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+console.log('Theme toggle button found:', themeToggle);
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light';
+console.log('Current theme from localStorage:', currentTheme);
+if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    console.log('Dark mode applied from localStorage');
+}
+
+// Toggle theme
+if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        console.log('Dark mode toggled. Current classes:', body.className);
+
+        // Save theme preference
+        const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+        console.log('Theme saved to localStorage:', theme);
+
+        // Add animation effect
+        this.style.transform = 'rotate(360deg) scale(1.2)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 400);
+    });
+} else {
+    console.error('Theme toggle button NOT found!');
+}
+
 console.log('태양투자자문 페이지가 로드되었습니다.');
