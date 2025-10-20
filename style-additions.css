@@ -396,24 +396,32 @@
 /* Feature Grid */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
   margin-top: 50px;
+  align-items: stretch; /* 모든 카드를 동일 높이로 */
 }
 
 .feature-card {
   background: linear-gradient(
     135deg,
-    var(--bg-card) 0%,
-    var(--bg-card-hover) 100%
+    var(--bg-primary) 0%,
+    rgba(99, 102, 241, 0.06) 100%
   );
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
-  padding: 35px 25px;
+  padding: 32px 24px;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+  min-height: 260px;
 }
 
 .feature-card::after {
@@ -423,11 +431,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -439,20 +443,20 @@
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 40px var(--shadow-color);
+  box-shadow: 0 16px 40px var(--shadow-color);
   border-color: var(--primary-light);
 }
 
 .feature-icon {
-  font-size: 48px;
-  margin-bottom: 15px;
+  font-size: 52px;
+  margin-bottom: 10px;
   display: block;
 }
 
 .feature-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
   background: linear-gradient(
     135deg,
     var(--primary-color) 0%,
@@ -464,17 +468,17 @@
 }
 
 .feature-time {
-  font-size: 15px;
-  color: var(--success-color);
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--success-color); /* 선명한 레드 톤 */
+  font-weight: 700;
+  margin-bottom: 6px;
   line-height: 1.6;
 }
 
 .feature-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-tertiary);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .highlight-text {
