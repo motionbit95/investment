@@ -224,12 +224,6 @@
         const email = emailInput.value.trim();
         const password = passwordInput.value;
 
-        // 관리자 계정 확인
-        if (!isAdmin(email)) {
-          showError('관리자 계정이 아닙니다. 접근 권한이 없습니다.');
-          return;
-        }
-
         // 로딩 상태
         loginBtn.disabled = true;
         loginBtn.textContent = '로그인 중...';
@@ -274,7 +268,7 @@
 
       // 이미 로그인된 경우 대시보드로 리다이렉트
       auth.onAuthStateChanged(function(user) {
-        if (user && isAdmin(user.email)) {
+        if (user) {
           window.location.href = 'admin-dashboard.html';
         }
       });

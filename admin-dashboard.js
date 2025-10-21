@@ -67,15 +67,7 @@
       return;
     }
 
-    if (!isAdmin(user.email)) {
-      // 관리자가 아니면 로그아웃 후 로그인 페이지로
-      auth.signOut();
-      alert('관리자 권한이 없습니다.');
-      window.location.href = 'admin-login.html';
-      return;
-    }
-
-    // 현재 사용자 저장
+    // 현재 사용자 저장 (로그인한 모든 계정은 관리자)
     currentUser = user;
     userEmailSpan.textContent = user.email;
 
