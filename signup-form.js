@@ -97,6 +97,12 @@
       confirmationModal.classList.remove("active");
       document.body.style.overflow = "";
     }
+    // 신청 모달도 함께 닫고 폼 초기화
+    if (modal) {
+      modal.classList.remove("active");
+      userName.value = "";
+      userPhone.value = "";
+    }
   }
 
   // Confirmation Modal 닫기 이벤트
@@ -201,17 +207,17 @@
 
       try {
         // Firestore에 신청 정보 저장
-        // const docRef = await db.collection("chatroom_applications").add({
-        //   name: name,
-        //   phone: phone,
-        //   status: "pending", // pending, approved, rejected
-        //   createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        //   processedAt: null,
-        //   processedBy: null,
-        //   notes: "",
-        // });
+        const docRef = await db.collection("chatroom_applications").add({
+          name: name,
+          phone: phone,
+          status: "pending", // pending, approved, rejected
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          processedAt: null,
+          processedBy: null,
+          notes: "",
+        });
 
-        // console.log("신청이 저장되었습니다. ID:", docRef.id);
+        console.log("신청이 저장되었습니다. ID:", docRef.id);
 
         // 모달 닫기
         closeModal();
